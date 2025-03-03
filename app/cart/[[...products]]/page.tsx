@@ -1,10 +1,10 @@
 import React from 'react'
 
 interface ProductPageProps {
-  params?: {products: string[]}
+  params?: { products: string[] }
 }
 
-const ProductPage = async ({params}: ProductPageProps) => {
+const ProductPage = async ({ params }: ProductPageProps) => {
   const params_list = await params
 
   return (

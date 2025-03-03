@@ -1,9 +1,14 @@
-import React from 'react'
+"use client";
 
-const Login = () => {
+import React from 'react'
+import LoginForm from './loginForm'
+
+const LoginPage = () => {
   return (
-    <div>Login</div>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <LoginForm />
+    </div>
   )
 }
 
-export default Login
+export default LoginPage

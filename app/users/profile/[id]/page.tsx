@@ -9,11 +9,11 @@ interface Profile {
 }
 
 interface singleProfileProps {
-  params: {id: string}
+  params: { id: string }
 }
 
-const SingleProfile = async ({params} : singleProfileProps) => {
-  const  { id } = await params;
+const SingleProfile = async ({ params }: singleProfileProps) => {
+  const { id } = await params;
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
   const profile: Profile = await res.json();
 
