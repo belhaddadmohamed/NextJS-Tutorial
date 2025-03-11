@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { use } from 'react';
 import Comment from '@/app/Components/Comment';
 import { toast } from 'react-toastify';
+import CommentForm from '@/app/Components/CommentForm';
 
 interface Article {
     id: number;
@@ -45,6 +46,7 @@ const SingleArticlePage = ({params} : Article) => {
 
             <hr className='mt-6' />
             <h2 className='text-xl underline italic'> Comments </h2>
+            <CommentForm />
             <Comment author={'Belhaddad.M.I'} text={'This is a good article'} onEdit={handleEdit} onDelete={handleDelete} />
             <Comment author={'Belhaddad.M.I'} text={'This is a good article'} onEdit={handleEdit} onDelete={handleDelete} />
             <Comment author={'Belhaddad.M.I'} text={'This is a good article'} onEdit={handleEdit} onDelete={handleDelete} />

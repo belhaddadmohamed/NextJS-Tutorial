@@ -42,6 +42,7 @@ const Page = () => {
         <div className="container mx-auto p-4">
             <h1 className="text-4xl font-bold mb-6 text-center">Articles</h1>
             <Search />
+
             <ul className="space-y-4 mb-4">
                 {posts.slice(0, 6).map(post => (
                     <li key={post.id} className="bg-white shadow-md rounded-lg p-6">
@@ -53,7 +54,7 @@ const Page = () => {
                 ))}
             </ul>
 
-            <Pagination 
+            <Pagination
                 currentPage={currentPage} 
                 totalPages={totalPages} 
                 onPageChange={(page: number) => setCurrentPage(page)} />
