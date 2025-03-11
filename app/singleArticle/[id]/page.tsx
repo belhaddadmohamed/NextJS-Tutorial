@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { use } from 'react';
+import Comment from '@/app/Components/Comment';
+import { toast } from 'react-toastify';
 
 interface Article {
     id: number;
@@ -27,10 +29,25 @@ const SingleArticlePage = ({params} : Article) => {
         return <div>Loading...</div>;
     }
 
+    function handleEdit(): void {
+        prompt("Start editing..")
+    }
+
+    function handleDelete(): boolean {
+        toast.success('Comment deleted successfully')
+        return false
+    }
+
     return (
         <div className="max-w-2xl mx-auto p-4">
             <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
             <p className="text-lg text-gray-700">{article.body}</p>
+
+            <hr className='mt-6' />
+            <h2 className='text-xl underline italic'> Comments </h2>
+            <Comment author={'Belhaddad.M.I'} text={'This is a good article'} onEdit={handleEdit} onDelete={handleDelete} />
+            <Comment author={'Belhaddad.M.I'} text={'This is a good article'} onEdit={handleEdit} onDelete={handleDelete} />
+            <Comment author={'Belhaddad.M.I'} text={'This is a good article'} onEdit={handleEdit} onDelete={handleDelete} />
         </div>
     );
 };
