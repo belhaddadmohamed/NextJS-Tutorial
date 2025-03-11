@@ -11,6 +11,9 @@ interface Post {
 }
 
 const Page = () => {
+    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    delay(3000);
+    
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -35,7 +38,7 @@ const Page = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        // return <div>Loading...</div>;
     }
 
     return (
