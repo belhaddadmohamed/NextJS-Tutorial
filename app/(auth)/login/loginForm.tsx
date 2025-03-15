@@ -1,15 +1,20 @@
+"use client";
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const route = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (email === 'test@example.com' && password === 'password') {
+    if (email === 'admin@gmail.com' && password === '123') {
       toast.success('Login successful');
+      route.replace('/');
+      // route.push('/');   // Add to the browser's navigation history 
     } else {
       toast.error('Invalid credentials');
     }
