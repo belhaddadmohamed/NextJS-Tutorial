@@ -2,10 +2,10 @@
 // Data Transfer Object
 export interface CreateArticleDto {
     title: string,
-    body: string,
+    description: string,
 }
 
 export interface UpdateArticleDto {
     title?: string,
-    body?: string,
+    description?: string,
 }
