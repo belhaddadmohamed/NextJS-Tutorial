@@ -2,7 +2,7 @@ import { articles } from "@/utils/data";
 import { UpdateArticleDto } from "@/utils/dtos";
 import { NextRequest, NextResponse } from "next/server";
 import { Article } from "@prisma/client";
-import prisma from "@/utils/db";
+import { prisma } from "@/utils/db";
 
 
 interface Props {
@@ -72,14 +72,21 @@ export async function PUT(request: NextRequest, { params }: Props) {
  * @access public
  */
 export async function DELETE(request: NextRequest, { params }: Props) {
-  const article = await prisma.article.findUnique({ where: {id: parseInt(params.id)} })
-  if (!article) {
-    return NextResponse.json({ message: "Article not found" }, { status: 404 });
+  try {
+    const article = await prisma.article.findUnique({ where: {id: parseInt(params.id)} })
+    if (!article) {
+      return NextResponse.json({ message: "Article not found" }, { status: 404 });
+    }
+
+    await prisma.article.delete(
+      {where: {id: parseInt(params.id)}},
+    )
+
+    return NextResponse.json({ message: "article deleted" }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      {message: 'Internal server error'},
+      {status: 500}
+    )
   }
-
-  await prisma.article.delete(
-    {where: {id: parseInt(params.id)}},
-  )
-
-  return NextResponse.json({ message: "article deleted" }, { status: 200 });
 }

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { CreateArticleDto } from "@/utils/dtos";
 import { createArticleSchema } from "@/utils/validationSchema";
 import { Article } from "@prisma/client";
-import prisma from "@/utils/db";
+import { prisma } from "@/utils/db";
 
 /**
  * @method GET
